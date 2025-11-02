@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import PrimaryButton from "../PrimeryButton";
 import { useNavigate, useLocation } from "react-router-dom";
-
+import { FaQuestion } from "react-icons/fa";
 export default function LandingPage() {
-  const navigate = useNavigate();
-  const location = useLocation();
-
+  const navigate = useNavigate();  
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -15,17 +13,13 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      
-      {/* Navbar */}
-      <nav className="flex justify-between items-center p-4 sm:px-12">
-        
-        {/* Logo */}
+            
+      <nav className="flex justify-between items-center p-4 sm:px-12">                
         <div className="flex items-center space-x-2">
-          <div className="text-3xl text-green-600">❓</div>
+          <div className="text-3xl text-green-600"><FaQuestion className="text-green-500"/></div>
           <span className="text-2xl font-bold text-gray-800">Quiz Spark</span>
         </div>
-
-        {/* Right Profile Button */}
+        
         <div>
           {
             user?
