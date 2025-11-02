@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import { getAllQuizzes } from "../../utils/resultStorage";
 
 export default function ProfilePage() {
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ export default function ProfilePage() {
 
     setUser(savedUser);
 
-    const savedResults = JSON.parse(localStorage.getItem("quizResults"));
+    const savedResults = getAllQuizzes();
         
     if (savedResults && savedResults.length > 0) {
       setResults(savedResults);

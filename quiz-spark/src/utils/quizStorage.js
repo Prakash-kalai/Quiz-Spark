@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const STORAGE_KEY = 'react_quiz_starter_v1';
 
-// Load all quizzes from localStorage
+
 function load() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -14,12 +14,11 @@ function load() {
   }
 }
 
-// Save all quizzes to localStorage
+
 function save(quizzes) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(quizzes));
 }
 
-// Public API functions
 
 export function getAllQuizzes() {
   return load();

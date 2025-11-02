@@ -36,8 +36,7 @@ export default function LandingPage() {
         </div>
 
       </nav>
-
-      {/* Hero Section */}
+      
       <main className="flex flex-col items-center justify-center pt-24 pb-16">
         <h1 className="text-6xl font-extrabold text-gray-900 mb-4 tracking-tight text-center">
           Learn <span className="text-green-600">10x Faster!</span>
@@ -46,8 +45,7 @@ export default function LandingPage() {
         <p className="text-xl text-gray-600 mb-10 text-center">
           Unlock Your Potential with Personalized Quizzes
         </p>
-
-        {/* Buttons */}
+        
         <PrimaryButton
           className="px-8 py-3.5 text-lg"
           onClick={() => navigate("/my-quizzes")}

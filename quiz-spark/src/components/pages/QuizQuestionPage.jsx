@@ -61,7 +61,7 @@ export default function QuizQuestionPage() {
 
   return (
     <div className="min-h-screen bg-white p-8">
-      {/* Header */}
+      
       <header className="flex justify-between items-center pb-6 border-b mb-10">
         <div className="flex items-center space-x-3">
           <div className="bg-green-600 p-2 rounded-lg text-white text-3xl">{'</>'}</div>
@@ -75,8 +75,7 @@ export default function QuizQuestionPage() {
           <span className="font-semibold text-xl">00:00:27</span>
         </div>
       </header>
-
-      {/* Main Content */}
+      
       <main className="max-w-3xl mx-auto">
         <div className="flex items-center mb-6">
           <h2 className="text-2xl font-semibold text-gray-800">
@@ -86,8 +85,7 @@ export default function QuizQuestionPage() {
             {currentQuestionIndex + 1}/{quiz.questions.length}
           </span>
         </div>
-
-        {/* Choices */}
+        
         <div>
           {currentQuestion.choices.map((choice, index) => (
             <button
@@ -102,8 +100,7 @@ export default function QuizQuestionPage() {
             </button>
           ))}
         </div>
-
-        {/* (Optional) Submit button — not needed for auto-next */}
+        
         <div className="flex justify-end mt-8">
           <button
             className="px-8 py-3 bg-green-700 text-white font-semibold rounded-lg shadow-lg hover:bg-green-800 transition"

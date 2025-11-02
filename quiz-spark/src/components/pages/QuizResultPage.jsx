@@ -12,34 +12,7 @@ export default function QuizResultPage() {
     quizTitle: "React Quiz",
     total: 5,
     correct: 3,
-  };
-  useEffect(() => {
-      const data=[{
-      "name":'',
-      "quizTitle": quizTitle,
-      "quizId": "react-basics-1",
-      "correct": correct,
-      "total": total,
-      "score":Math.round((correct / total) * 100),
-      "timeTaken": "2m 35s",
-      "attemptedAt": "2025-10-31 14:22",
-      "answers": [
-        {
-          "question": "What is JSX?",
-          "selected": "A syntax extension for JavaScript",
-          "correctAnswer": "A syntax extension for JavaScript",
-          "isCorrect": true
-        },
-        {
-          "question": "Which hook is used for state?",
-          "selected": "useState",
-          "correctAnswer": "useState",
-          "isCorrect": true
-        }
-      ]
-    }]
-     
-    }, []);
+  };           
   const percentage = Math.round((correct / total) * 100);
   
   const getMessage = () => {
