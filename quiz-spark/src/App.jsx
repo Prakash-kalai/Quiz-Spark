@@ -6,6 +6,8 @@ import MyQuizzesPage from "./components/pages/MyQuizzesPage";
 import QuizQuestionPage from "./components/pages/QuizQuestionPage";
 import { seedExample } from "./utils/quizStorage";
 import QuizResultPage from "./components/pages/QuizResultPage";
+import SignIn from "./authentication/Signin";
+import ProfilePage from "./components/pages/Profile";
 
 
 export default function App() {
@@ -21,6 +23,8 @@ export default function App() {
         <Route path="/my-quizzes" element={<MyQuizzesPage />} />
         <Route path="/quiz-question/:id" element={<QuizQuestionPage />} />
         <Route path="/result" element={<QuizResultPage />} />
+        <Route path="/signin" element={<SignIn/>}/>
+        <Route path="/profile" element={<ProfilePage/>}/>
       </Routes>
     </BrowserRouter>
   );

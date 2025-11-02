@@ -1,43 +1,54 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getAllQuizzes } from "../../utils/quizStorage";
+import { createQuiz } from "../../utils/resultStorage";
 
 export default function QuizQuestionPage() {
   const navigate = useNavigate();
-  const { id } = useParams(); // ✅ get quiz id correctly
+  const { id } = useParams(); 
   const quizzes = getAllQuizzes();
   const quiz =
     quizzes.find((q) => q.id === id) || { title: "React Quiz", questions: [] };
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
-
+  const userData = JSON.parse(localStorage.getItem("user"));
   const handleAnswerClick = (index) => {
     const currentQuestion = quiz.questions[currentQuestionIndex];
 
     if (!currentQuestion) return;
 
-    // ✅ Check if correct
+    
     const isCorrect = index === currentQuestion.answerIndex;
     const updatedScore = isCorrect ? score + 1 : score;
     setScore(updatedScore);
 
-    // ✅ Move to next question or finish quiz
+    
     if (currentQuestionIndex < quiz.questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      // ✅ Navigate to result page
+    } else {      
       navigate("/result", {
         state: {
+          username:userData?.email,
           quizTitle: quiz.title,
           correct: updatedScore,
           total: quiz.questions.length,
+          answer:quiz.questions,
         },
       });
+      const data={
+        name:userData?.email,
+          quizTitle: quiz.title,
+          correct: updatedScore,
+          total: quiz.questions.length,
+          answer:quiz.questions,
+      }
+      createQuiz(data);
     }
   };
 
-  // ✅ Handle no questions
+
+  
   if (quiz.questions.length === 0) {
     return (
       <div className="min-h-screen flex items-center justify-center text-gray-600 text-xl">
